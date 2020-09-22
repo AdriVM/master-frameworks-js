@@ -1,0 +1,55 @@
+<!--<h1 class="sub-header">Página de Pruebas</h1>
+<div *ngIf="nombreGET && apellidosGET">
+    <h2>
+        Los parámetros introducidos en la URL son: 
+    </h2>
+    <h3>Nombre: {{ nombreGET }}</h3>
+    <h3>Apellidos: {{ apellidosGET }}</h3>
+</div>
+
+<div *ngIf="!nombreGET || !apellidosGET">
+    <h2>
+        No hay parámetros en la URL 
+    </h2>
+    <p>
+        Recuerda, que para ver el nombre tienes que poner en la URL:
+        <br>
+        URL/nombre/apellido
+    </p>
+</div>
+
+<button (click)="redireccion()" >Cárgame un nombre y un apellido de prueba</button>-->
+<!-- Slider -->
+<app-slider [nombreEjemplo]="'Página de Ejemplo'"></app-slider>
+<div class="center">
+    <section id="content">
+        <h1 class="sub-header">Página de Pruebas</h1>
+        <div *ngIf="nombreGET && apellidosGET; then siHayParametros; else noHayParametros">
+
+        </div>
+
+        <ng-template #siHayParametros>
+            <h2>
+                Los parámetros introducidos en la URL son:
+            </h2>
+            <h3>Nombre: {{ nombreGET }}</h3>
+            <h3>Apellidos: {{ apellidosGET }}</h3>
+        </ng-template>
+
+        <ng-template #noHayParametros>
+            <h2>
+                No hay parámetros en la URL
+            </h2>
+            <p>
+                Recuerda, que para ver el nombre tienes que poner en la URL:
+                <br>
+                URL/nombre/apellido
+            </p>
+        </ng-template>
+
+        <button (click)="redireccion()">Cárgame un nombre y un apellido de prueba</button>
+    </section>
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div class="clearfix"></div>
+</div>

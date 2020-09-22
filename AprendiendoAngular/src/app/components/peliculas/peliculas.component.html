@@ -1,0 +1,43 @@
+<!-- Slider -->
+<app-slider [nombreEjemplo]="'Películas'" [size]="'small'"></app-slider>
+<div class="center">
+    <section id="content">
+
+        <div id="favorita" *ngIf="favorita">
+            <h2 class="sub-header">Pelicula Favorita</h2>
+            <!-- | uppercase es una pipe definida por angular que transforma el texto a mayúscula -->
+            <h4>{{ favorita.title | uppercase }}</h4> 
+            <h5>({{ favorita.year | date:"dd/MM/yyyy" }})</h5>
+            <!-- espar es una Pipe que hemos creado nosotros. se debe enlazar en el app.component para que funcione -->
+            <h5>({{ favorita.year | espar }})</h5>
+        </div>
+
+        <h1 class="sub-header">Películas</h1>
+        <!--
+        <button (click)="mostrarPelicula()">Pulsa para ver la Pelicula Oculta</button>
+        <div *ngIf="mostrar==true">
+            <h2>La pelicula {{ titulo }}</h2>
+            <p>Se estrenó el {{ estreno_format }}, hace {{ hace }} años.</p>
+        </div>
+
+        <hr>
+
+        /*<h2>Mostrar la primera película:</h2>
+{{ films[0].title }}
+
+<hr>*/
+
+        <h2 class="sub-header" *ngIf="films">Listado de peliculas: ({{ films.length }})</h2>
+    -->
+        <div id="articles" *ngIf="films">
+
+            <div *ngFor="let film of films; let i = index">
+                <app-pelicula [film]="film" [i]="i" [estreno_format]="estreno_format" [hace]="hace" (MarcarFavorita)="mostrarFavorita($event)"></app-pelicula>
+            </div>
+
+        </div>
+    </section>
+    <!-- Sidebar -->
+    <app-sidebar></app-sidebar>
+    <div class="clearfix"></div>
+</div>

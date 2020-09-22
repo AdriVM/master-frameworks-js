@@ -1,0 +1,25 @@
+<article class="article-item">
+    <div class="image-wrap">
+        <img src="{{ film.image }}" alt="{{ film.title }}">
+    </div>
+
+    <h2>{{ i+1 }} - {{ film.title }}</h2>
+    <span class="date" [style.color]="film.year.getFullYear() > 2016 ? 'green' : 'red'" *ngIf="hace[i] >= 0">
+        Se estrenó el {{ estreno_format[i] }}, hace {{ hace[i] }} años.
+    </span>
+    <span class="date" [style.color]="film.year.getFullYear() > 2016 ? 'green' : 'red'" *ngIf="hace[i] < 0">
+        Se estrenará el {{ estreno_format[i] }}, en {{ -hace[i] }} años.
+    </span>
+    <!-- [class.year-green]="film.year > 2016" [class.year-red]="film.year < 2016" -->
+    <span class="year" [ngClass]="{
+                            'year-green': film.year.getFullYear() > 2016 ,
+                            'year-red': film.year.getFullYear() < 2016 
+                        }">
+        {{ film.year.getFullYear() }}
+    </span>
+    <!--<a href="article.html">Leer más</a>-->
+    <button (click)="seleccionar($event, film)">
+        Seleccionar Favorita
+    </button>
+    <div class="clearfix"></div>
+</article>

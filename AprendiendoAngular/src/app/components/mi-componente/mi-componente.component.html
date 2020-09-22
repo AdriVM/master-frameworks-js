@@ -1,0 +1,11 @@
+<h1> Hola, mi nombre es {{ nombre }} {{ apellido_1 }} {{ apellido_2 }}</h1>
+<p>Tengo {{ edad }} años</p>
+<p *ngIf="idioma=='ES'">Mi idioma es Español</p>
+<p *ngIf="idioma=='EN'">My language is English</p>
+<hr>
+<h1>Componentes Externos</h1>
+<button (click)="ocultarPeliculas()">Ocultar Peliculas</button>
+<div *ngIf="mostrarPeliculas">
+    <peliculas></peliculas>
+</div>
+<pruebas></pruebas>
