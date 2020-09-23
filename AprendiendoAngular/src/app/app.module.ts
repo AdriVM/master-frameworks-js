@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
+/* IMPORTANTÍSIMO PARA QUE FUNCIONEN LOS FORMULARIOS */
+import { FormsModule } from '@angular/forms';
+/* IMPORATANET PARA LA COMUNICACION CON EL API */
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MiComponente } from './components/mi-componente/mi-componente.component';
@@ -42,7 +46,9 @@ import { EsParPipe } from './pipes/espar.pipe';
   ],
   imports: [
     BrowserModule,
-    routing
+    routing,
+    FormsModule, 
+    HttpClientModule
   ],
   providers: [DatePipe, appRoutingProviders],
   bootstrap: [AppComponent]
