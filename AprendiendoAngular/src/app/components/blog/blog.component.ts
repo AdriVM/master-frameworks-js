@@ -24,6 +24,8 @@ export class BlogComponent implements OnInit {
 
   ngOnInit(): void {
     //console.log(this._articleService.pruebas());
+
+    //Lamada AJAX al Backend
     this._articleService.getArticles().subscribe(
         response => {
           if(response.articles){
