@@ -12,6 +12,8 @@
     --grisOscuro: #444;
 
     --btnSuccess: rgb(23, 150, 19);
+    --btnWarning: rgb(238, 165, 6);
+    --btnDanger:  rgb(201, 21, 21);
 }
 
 body {
@@ -231,6 +233,7 @@ body {
     max-width: 120px;
     border: none;
     cursor: pointer;
+    text-align: center;
 }
 
 .btn-success {
@@ -239,10 +242,39 @@ body {
 
 .btn-success:hover {
     background: var(--negro);
+    color: var(--blanco)!important;
+    text-decoration: none!important;
     -webkit-transition: background 300ms linear;
     -ms-transition: background 300ms linear;
     transition: background 300ms linear;
 }
+
+.btn-warning {
+    background: var(--btnWarning);
+    color: var(--blanco)!important;
+    text-decoration: none;
+}
+
+.btn-danger {
+    background: var(--btnDanger);
+    color: var(--blanco)!important;
+    text-decoration: none;
+}
+
+.btn-warning:hover,
+.btn-danger:hover {
+
+    transition: all 300ms;
+    opacity: 0.8;
+    text-decoration: none!important;
+}
+
+.buttons {
+    display: inline-block;
+    width: 100%;
+    margin-top: 30px;
+}
+
 
 input[type="text"],
 textarea {
