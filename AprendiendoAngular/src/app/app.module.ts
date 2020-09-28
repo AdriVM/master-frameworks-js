@@ -26,6 +26,11 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 
 import { EsParPipe } from './pipes/espar.pipe';
 
+import { ArticlesComponent } from './components/articles/articles.component';
+import { MomentModule } from 'angular2-moment';
+import { ArticleComponent } from './components/article/article.component';
+import { SearchComponent } from './components/search/search.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,13 +47,17 @@ import { EsParPipe } from './pipes/espar.pipe';
     PaginaComponent,
     ErrorComponent,
     PeliculaComponent,
-    EsParPipe    
+    EsParPipe,
+    ArticlesComponent,
+    ArticleComponent,
+    SearchComponent    
   ],
   imports: [
     BrowserModule,
     routing,
     FormsModule, 
-    HttpClientModule
+    HttpClientModule,
+    MomentModule
   ],
   providers: [DatePipe, appRoutingProviders],
   bootstrap: [AppComponent]
