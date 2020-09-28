@@ -26,8 +26,31 @@ export class ArticleService {
 
 
     //Indicamos el tipo que nos va a devolver (:Observable<any>)
-    getArticles():Observable<any>{
-        return this._httpClient.get(this.url+'articles');
+    // Reutilizamos el método para sacar los ultimos articulos del backend
+    getArticles(last: any = null):Observable<any>{
+
+        var articles = 'articles';
+        console.log(last);
+        if(last != null){
+            //Sacamos los ultimos articulos; el nº despues de la barra indica la cantidad de articulos a mostrar, pasamos 5 porque queremos que salgan 5.
+            articles = 'articles/5';
+        }
+
+        return this._httpClient.get(this.url+articles);
     }
+
+
+    getArticle(id):Observable<any>{
+
+        return this._httpClient.get(this.url+'article/'+id);
+    }
+
+
+    search(searchString):Observable<any>{
+
+        return this._httpClient.get(this.url+'search/'+searchString);
+
+    }
+
 
 }

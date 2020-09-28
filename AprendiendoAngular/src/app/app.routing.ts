@@ -11,6 +11,7 @@ import { PaginaComponent } from './components/pagina/pagina.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ArticleComponent } from './components/article/article.component';
+import { SearchComponent } from './components/search/search.component';
 
 
 
@@ -22,6 +23,7 @@ const appRoutes :  Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'blog', component: BlogComponent },
     { path: 'blog/articulo/:id', component: ArticleComponent },
+    { path: 'buscar/:search', component: SearchComponent },
     { path: 'contacto', component: FormularioComponent },
     { path: 'peliculas', component: PeliculasComponent },
     { path: 'pagina-de-pruebas', component: PaginaComponent },
