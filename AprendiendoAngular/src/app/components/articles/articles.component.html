@@ -9,11 +9,24 @@
 
 <div id="articles" *ngIf="articles">
     <article class="article-item" id="article-template" *ngFor="let article of articles">
-        <div class="image-wrap">
+        <div class="image-wrap" [ngStyle]=
+        "{
+            'background-image': 'url('+url+'get-image/'+article.image+')',
+            'background-position': 'center',
+            'background-size': 'cover'
+        }"
+        *ngIf="article.image != null"></div>
+        <div class="image-wrap" [ngStyle]=
+            "{
+                'background-image': 'url(assets/images/default.png)',
+                'background-position': 'center',
+                'background-size': 'cover'
+            }" 
+            *ngIf="article.image == null"></div>
             <!--https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-nC2smsN7PDcLUxGxSWkMYvbGvqkTzdDXGA&usqp=CAU-->
-            <img src="{{ url+'get-image/'+article.image }}" alt="{{ article.title }}" *ngIf="article.image != null">
-            <img src="assets/images/default.png" alt="{{ article.title }}" *ngIf="article.image == null">
-        </div>
+            <!--<img src="{{ url+'get-image/'+article.image }}" alt="{{ article.title }}" *ngIf="article.image != null">
+            <img src="assets/images/default.png" alt="{{ article.title }}" *ngIf="article.image == null">-->
+        
 
         <h2>{{ article.title }}</h2>
         <span class="date">
