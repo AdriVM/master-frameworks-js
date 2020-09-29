@@ -30,7 +30,7 @@ export class ArticleService {
     getArticles(last: any = null):Observable<any>{
 
         var articles = 'articles';
-        console.log(last);
+ 
         if(last != null){
             //Sacamos los ultimos articulos; el nº despues de la barra indica la cantidad de articulos a mostrar, pasamos 5 porque queremos que salgan 5.
             articles = 'articles/5';
@@ -52,5 +52,24 @@ export class ArticleService {
 
     }
 
+    create(article):Observable<any>{
+        let params = JSON.stringify(article);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+
+        return this._httpClient.post(this.url+'save', params, { headers: headers });
+    }
+
+    update(id, article):Observable<any>{
+        
+        let params = JSON.stringify(article);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        
+        return this._httpClient.put(this.url+'article/'+id, params, { headers: headers });
+    }
+
+    delete(id):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        return this._httpClient.delete(this.url+'article/'+id, {headers: headers});
+    }
 
 }
