@@ -277,6 +277,10 @@ body {
 
 
 input[type="text"],
+input[type="file"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
 textarea {
     width: 100%;
     min-height: 30px;
@@ -284,6 +288,14 @@ textarea {
     padding: 3px;
     margin-bottom: 5px;
     
+}
+
+.btn.up_btn.afu-attach-pin{
+    display: block!important;
+    width: 100%!important;
+    max-width: 90%!important;
+    margin-top: 15px;
+
 }
 
 input[type="text"]:focus,
@@ -325,6 +337,11 @@ textarea {
     margin-bottom: 5px;
     font-size: 17px;
     margin-top: 10px;
+}
+
+.image-thumb img{
+    width: 150px;
+    text-align: center;
 }
 
 /*  FOOTER */
