@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
+import Swal from 'sweetalert2';
 import { Article } from '../../models/article';
 import { ArticleService } from '../../services/article.service';
 import { Global } from '../../services/global';
@@ -72,7 +73,19 @@ export class ArticleEditComponent implements OnInit {
 
           this.status = 'success';
           this.article = response.article;
-          this._router.navigate(['/blog/articulo', this.article._id]);
+
+          //ALERTA
+          Swal.fire({
+            icon: 'success',
+            title: '¡Artículo Modificado!',
+            text: 'El artículo se ha modificado correctamente :)'
+          }).then((result) => {
+            if (result.isConfirmed) {
+              this._router.navigate(['/blog/articulo', this.article._id]);
+            } 
+          });
+
+          
 
         } else {
 
@@ -88,12 +101,12 @@ export class ArticleEditComponent implements OnInit {
     );
   }
 
-  imageUpload(data){
+  imageUpload(data) {
     let image_data = data.body;
     this.article.image = image_data.image;
   }
 
-  getArticle(){
+  getArticle() {
     //Recogemos el dato que nos llega de la URL
     this._route.params.subscribe(params => {
       let id = params['id'];
@@ -104,13 +117,23 @@ export class ArticleEditComponent implements OnInit {
           if (response.article) {
             console.log(response.article);
             this.article = response.article;
-          }else{
+          } else {
             this._router.navigate(['/404']);
           }
         },
         error => {
           console.log(error);
-          this._router.navigate(['/404']);
+          //ALERTA
+        Swal.fire({
+          icon: 'error',
+          title: 'Fallo en la Edición',
+          text: 'Error al editar el artículo: '+error
+        }).then((result) =>{
+          if (result.isConfirmed) {
+            this._router.navigate(['/404']);
+          } 
+        });
+          
         }
       );
 
