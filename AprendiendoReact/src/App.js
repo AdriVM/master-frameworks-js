@@ -7,7 +7,8 @@ import Slider from './components/Slider';
 import Sidebar from './components/Sidebar';
 import Footer from './components/Footer';
 
-import SeccionPruebas from './components/SeccionPruebas'
+//import SeccionPruebas from './components/SeccionPruebas'
+import Peliculas from './components/Peliculas';
 
 
 
@@ -16,16 +17,21 @@ import SeccionPruebas from './components/SeccionPruebas'
 
 function App() {
 
+  var ButtonSlider = "Ir al Blog";
+
   return (
     <div className="App">
       <Header />
-      <Slider />
-      <div class="center">
+      <Slider 
+        title="Bienvenido al Curso de React"
+        btn={ ButtonSlider }
+      />
+      <div className="center">
         <section id="content">
-          <SeccionPruebas/>
+          <Peliculas/>
         </section>
         <Sidebar />
-        <div class="clearfix"></div>
+        <div className="clearfix"></div>
       </div>
       <Footer />
     </div>
