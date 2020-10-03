@@ -6,8 +6,9 @@ class Slider extends React.Component {
 
         return (
             <div id="slider" className="slider-big">
-                <h1>Bienvenido al Curso de React</h1>
-                <a href="blog.html" className="btn-white">Ir al Blog</a>
+                { /* ACCEDEMOS A LAS VARIABLES QUE PASAMOS DESDE APP */ }
+                <h1>{ this.props.title }</h1>
+                <a href="blog.html" className="btn-white">{ this.props.btn }</a>
             </div>
         );
     }
