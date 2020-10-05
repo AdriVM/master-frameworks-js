@@ -1,5 +1,7 @@
 import React from 'react';
 import Logo from '../assets/images/logo.svg';
+//Importamos navLink para que funcionen las rutas de la cabecera
+import { NavLink } from 'react-router-dom';
 
 class Header extends React.Component {
 
@@ -19,19 +21,19 @@ class Header extends React.Component {
                     <nav id="menu">
                         <ul>
                             <li>
-                                <a href="index.html">Inicio</a>
+                                <NavLink to="/home" activeClassName="active">Inicio</NavLink>
                             </li>
                             <li>
-                                <a href="blog.html">Blog</a>
+                                <NavLink to="/blog" activeClassName="active">Blog</NavLink>
                             </li>
                             <li>
-                                <a href="formulario.html">Contacto</a>
+                                <NavLink to="/mi-componente" activeClassName="active">Contacto</NavLink>
                             </li>
                             <li>
-                                <a href="#">Página 1</a>
+                                <NavLink to="/pagina-1" activeClassName="active">Página 1</NavLink>
                             </li>
                             <li>
-                                <a href="#">Página 2</a>
+                                <NavLink to="/peliculas" activeClassName="active">Página 2</NavLink>
                             </li>
                         </ul>
                     </nav>
