@@ -150,6 +150,11 @@ body {
   transition: color 300ms linear;
 }
 
+#menu .active {
+  border-bottom: 3px solid var(--framework);
+  padding-bottom: 5px;
+}
+
 
 /*  SLIDER  */
 
