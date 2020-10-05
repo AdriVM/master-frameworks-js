@@ -5,10 +5,14 @@ class Slider extends React.Component {
     render() {
 
         return (
-            <div id="slider" className="slider-big">
+            <div id="slider" className={ this.props.size }>
                 { /* ACCEDEMOS A LAS VARIABLES QUE PASAMOS DESDE APP */ }
                 <h1>{ this.props.title }</h1>
-                <a href="blog.html" className="btn-white">{ this.props.btn }</a>
+                {
+                    this.props.btn &&
+                    <a href="blog.html" className="btn-white">{ this.props.btn }</a>
+                }
+                
             </div>
         );
     }
