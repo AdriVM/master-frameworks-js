@@ -20,6 +20,15 @@ class MiComponente extends React.Component{
 
         return (
             <>
+                {
+                    this.props.saludo &&
+                    <>
+                        <h3>==========================</h3>
+                            <h1>Desde una prop:</h1>
+                            <h2>{ this.props.saludo }</h2>
+                        <h3>==========================</h3>
+                    </>
+                }
                 <h1>{ receta.nombre }</h1>
                 <h2>{ receta.tipo }</h2>
                 <h3>{ '('+ receta.calorias +' calorias)' }</h3>
