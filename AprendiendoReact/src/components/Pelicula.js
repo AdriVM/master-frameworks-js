@@ -31,7 +31,7 @@ class Pelicula extends React.Component{
                 O LLAMANDO AL MÉTODO (MIRAR MÉTODO COMENTADA ARRIBA) marcar CON:
                     this.marcar
                 */}
-                <button onClick={ () => {this.props.marcarFavorita(this.props.pelicula)} }>Marcar como Favorita</button>
+                <button onClick={ () => {this.props.marcarFavorita(pelicula)} }>Marcar como Favorita</button>
                 <div className="clearfix"></div>
             </article>
         )
