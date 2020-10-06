@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //Importar Componentes
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Slider from './components/Slider';
+import Sidebar from './components/Sidebar';
 
 import SeccionPruebas from './components/SeccionPruebas';
 import MiComponente from './components/MiComponente';
@@ -14,6 +16,7 @@ import Error from './components/Error';
 //Componentes reales
 import Home from './components/Home';
 import Blog from './components/Blog';
+import Formulario from './components/Formulario';
 
 
 class Router extends Component {
@@ -37,15 +40,25 @@ class Router extends Component {
                     <Route exact path="/" component={Home} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/blog" component={Blog} />
+                    <Route exact path="/formulario" component={Formulario} />
                     <Route path="/peliculas" component={Peliculas} />
                     <Route path="/ruta-prueba" component={SeccionPruebas} />
                     <Route path="/mi-componente" component={MiComponente} />
 
                     <Route path="/pagina-1" render={() => (
                         <>
-                            <h1>Hola Mundo desde la ruta pagina-1</h1>
-                            <p>Me cargo sin componente porque creo el render directamente en la ruta.</p>
-                            <MiComponente saludo="Hola amigo" />
+                            <Slider
+                                title="Pruebas"
+                                size="slider-small"
+                            />
+                            <div className="center">
+                                <section id="content">
+                                    <h1>Hola Mundo desde la ruta pagina-1</h1>
+                                    <p>Me cargo sin componente porque creo el render directamente en la ruta.</p>
+                                    <MiComponente saludo="Hola amigo" />
+                                </section>
+                                <Sidebar />
+                            </div>
                         </>
                     )} />
 
@@ -58,15 +71,24 @@ class Router extends Component {
 
                         return (
                             <>
-                                <h1 className="sub-header">Ruta de Pruebas</h1>
-                                <h2>
-                                    {nombre && !apellidos &&
-                                        <>{nombre}</>
-                                    }
-                                    {nombre && apellidos &&
-                                        <>{nombre} {apellidos}</>
-                                    }
-                                </h2>
+                                <Slider
+                                    title="Pruebas"
+                                    size="slider-small"
+                                />
+                                <div className="center">
+                                    <section id="content">
+                                        <h1 className="sub-header">Ruta de Pruebas</h1>
+                                        <h2>
+                                            {nombre && !apellidos &&
+                                                <>{nombre}</>
+                                            }
+                                            {nombre && apellidos &&
+                                                <>{nombre} {apellidos}</>
+                                            }
+                                        </h2>
+                                    </section>
+                                    <Sidebar />
+                                </div>
                             </>
                         )
                     }
@@ -74,10 +96,10 @@ class Router extends Component {
                     <Route component={Error} />
 
                 </Switch>
-               
-                    
-                    <div className="clearfix"></div>
-               
+
+
+                <div className="clearfix"></div>
+
                 <Footer />
             </BrowserRouter>
         );
