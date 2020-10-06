@@ -1,6 +1,8 @@
 import React from 'react';
 //Importamos el compenente Peliculas
 import Pelicula from './Pelicula';
+import Slider from './Slider';
+import Sidebar from './Sidebar';
 
 class Peliculas extends React.Component {
 
@@ -26,12 +28,12 @@ class Peliculas extends React.Component {
         this.setState({
             favorita: pelicula
         });
-        
+
     }
 
 
-    
-  
+
+
 
 
 
@@ -70,7 +72,7 @@ class Peliculas extends React.Component {
      *   }
      * 
      */
-    UNSAFE_componentWillMount(){
+    UNSAFE_componentWillMount() {
         console.log('Se va a cargar el componente Peliculas');
         this.setState({
             peliculas: [
@@ -105,46 +107,57 @@ class Peliculas extends React.Component {
         }
 
         return (
-            <div className="peliculas">
-                <h2 className="sub-header">Películas</h2>
-                <p>Selección de las películas favorias de { this.state.nombre }</p>
-                <p>
-                    <button onClick={ this.cambiarTitulo }>
-                        Cambiar titlulo de primera película
+            <>
+                <Slider
+                    title="Películas"
+                    size="slider-small"
+                />
+                <div className="center">
+                    <section id="content">
+                        <div className="peliculas">
+                            <h2 className="sub-header">Listado de Películas</h2>
+                            <p>Selección de las películas favorias de {this.state.nombre}</p>
+                            <p>
+                                <button onClick={this.cambiarTitulo}>
+                                    Cambiar titlulo de primera película
                     </button>
-                </p>
-                {
-                    //Condicional, si existe this.state.favorita.titulo
-                    //  Puede ser así this.state.favorita.titulo && o terciaria
-                    // Tambien se puede hacer en js (antes del return del render) haciendo un if y creando una varible con el html que mostraremos, tan solo habria que llamar a esa variable entre {}
-                    // O incluso creando un método que nos haga la comprobación fuera del render y llamar a ese método con { this.nombreMetodo }
-                    this.state.favorita.titulo ? (
-                    <p className="favorita" style={ pStyle }>
-                        <strong>La Película favorita es: </strong>
-                        <span id="favorita">{ this.state.favorita.titulo }</span>
-                    </p>
-                    ) : (
-                        <p>Todavía no hay película favorita</p>
-                    )
-                }
-                
-                { /* CREAR COMPONETE PELICULA */ }
+                            </p>
+                            {
+                                //Condicional, si existe this.state.favorita.titulo
+                                //  Puede ser así this.state.favorita.titulo && o terciaria
+                                // Tambien se puede hacer en js (antes del return del render) haciendo un if y creando una varible con el html que mostraremos, tan solo habria que llamar a esa variable entre {}
+                                // O incluso creando un método que nos haga la comprobación fuera del render y llamar a ese método con { this.nombreMetodo }
+                                this.state.favorita.titulo ? (
+                                    <p className="favorita" style={pStyle}>
+                                        <strong>La Película favorita es: </strong>
+                                        <span id="favorita">{this.state.favorita.titulo}</span>
+                                    </p>
+                                ) : (
+                                        <p>Todavía no hay película favorita</p>
+                                    )
+                            }
 
-                <div id="articles">
-                    {
-                        this.state.peliculas.map((pelicula, i) => {
-                            return (
-                                <Pelicula 
-                                    pelicula={ pelicula } 
-                                    key={ i }
-                                    marcarFavorita={ this.favorita }
-                                />
-                            )
-                        })
-                    }
+                            { /* CREAR COMPONETE PELICULA */}
+
+                            <div id="articles">
+                                {
+                                    this.state.peliculas.map((pelicula, i) => {
+                                        return (
+                                            <Pelicula
+                                                pelicula={pelicula}
+                                                key={i}
+                                                marcarFavorita={this.favorita}
+                                            />
+                                        )
+                                    })
+                                }
+                            </div>
+
+                        </div>
+                    </section>
+                    <Sidebar/>
                 </div>
-
-            </div>
+            </>
 
         );
     }
