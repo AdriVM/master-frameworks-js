@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //Importamos el módulo de react-router-dom que acabamos de instalar con ( npm install --save react-router-dom )
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+
 
 //Importar Componentes
 import Header from './components/Header';
@@ -16,7 +17,9 @@ import Error from './components/Error';
 //Componentes reales
 import Home from './components/Home';
 import Blog from './components/Blog';
+import Article from './components/Article';
 import Formulario from './components/Formulario';
+import Search from './components/Search';
 
 
 class Router extends Component {
@@ -40,6 +43,18 @@ class Router extends Component {
                     <Route exact path="/" component={Home} />
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/blog" component={Blog} />
+                    <Route exact path="/blog/articulo/:id" component={Article}/>
+                    <Route exact path="/blog/busqueda/:search" component={Search}/>
+                    <Route exact path="/redirect/:search" render={ 
+                        (props) => {
+                            var search = props.match.params.search;
+                            //Redirigimos a la ruta de busqueda
+                            return(
+                                <Redirect to={ '/blog/busqueda/' + search } />
+                            )
+                            
+                        }
+                        }/>
                     <Route exact path="/formulario" component={Formulario} />
                     <Route path="/peliculas" component={Peliculas} />
                     <Route path="/ruta-prueba" component={SeccionPruebas} />
