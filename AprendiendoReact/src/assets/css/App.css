@@ -51,6 +51,8 @@
   --grisOscuro: #444;
 
   --btnSuccess: rgb(23, 150, 19);
+  --btnWarning: rgb(238, 165, 6);
+  --btnDanger:  rgb(201, 21, 21);
 }
 
 body {
@@ -277,15 +279,55 @@ body {
   -ms-transition: background 300ms linear;
   transition: background 300ms linear;
 }
+.btn-warning {
+  background: var(--btnWarning);
+  color: var(--blanco)!important;
+  text-decoration: none;
+  float: left;
+}
+
+.btn-danger {
+  background: var(--btnDanger);
+  color: var(--blanco)!important;
+  text-decoration: none;
+  float: left;
+  margin-right: 20px;
+}
+
+.btn-warning:hover,
+.btn-danger:hover {
+
+  transition: all 300ms;
+  opacity: 0.8;
+  text-decoration: none!important;
+}
+
+.buttons {
+  display: inline-block;
+  width: 100%;
+  margin-top: 30px;
+}
 
 input[type="text"],
+input[type="file"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
 textarea {
-  width: 100%;
-  min-height: 30px;
-  border: 1px solid var(--grisClaro);
-  padding: 3px;
-  margin-bottom: 5px;
-  
+    width: 100%;
+    min-height: 30px;
+    border: 1px solid var(--grisClaro);
+    padding: 3px;
+    margin-bottom: 5px;
+    
+}
+
+.btn.up_btn.afu-attach-pin{
+    display: block!important;
+    width: 100%!important;
+    max-width: 90%!important;
+    margin-top: 15px;
+
 }
 
 input[type="text"]:focus,
@@ -294,26 +336,27 @@ input[type="text"]:focus-within,
 textarea:focus,
 textarea:focus-visible,
 textarea:focus-within {
-  box-shadow: 0px 0px 2px var(--grisClaro) inset;
-  -webkit-transition: box-shadow 300ms linear;
-  -ms-transition: box-shadow 300ms linear;
-  transition: box-shadow 300ms linear;
+    box-shadow: 0px 0px 2px var(--grisClaro) inset;
+    -webkit-transition: box-shadow 300ms linear;
+    -ms-transition: box-shadow 300ms linear;
+    transition: box-shadow 300ms linear;
 }
 
 textarea {
-  width: 100%;
-  height: 150px;
-  min-width: 100%;
-  min-height: 150px;
-  max-width: 100%;
-  max-height: 300px;
+    width: 100%;
+    height: 150px;
+    min-width: 100%;
+    min-height: 150px;
+    max-width: 100%;
+    max-height: 300px;
 }
 
 .radiobuttons {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  float: left;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
 }
+
 
 .mid-form {
   width: 50%;
@@ -370,6 +413,8 @@ textarea {
   float: left;
   margin-right: 15px;
   border: 1px solid var(--grisClaro);  
+  background-position: center;
+  background-size: cover;
 }
 
 .article-item .image-wrap img {
