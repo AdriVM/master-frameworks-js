@@ -20,6 +20,8 @@ import Blog from './components/Blog';
 import Article from './components/Article';
 import Formulario from './components/Formulario';
 import Search from './components/Search';
+import CreateArticle from './components/CreateArticle'
+import EditArticle from './components/EditArticle'
 
 
 class Router extends Component {
@@ -44,6 +46,8 @@ class Router extends Component {
                     <Route exact path="/home" component={Home} />
                     <Route exact path="/blog" component={Blog} />
                     <Route exact path="/blog/articulo/:id" component={Article}/>
+                    <Route exact path="/blog/crear" component={CreateArticle}/>
+                    <Route exact path="/blog/editar/:id" component={EditArticle}/>
                     <Route exact path="/blog/busqueda/:search" component={Search}/>
                     <Route exact path="/redirect/:search" render={ 
                         (props) => {
@@ -55,6 +59,8 @@ class Router extends Component {
                             
                         }
                         }/>
+                    
+
                     <Route exact path="/formulario" component={Formulario} />
                     <Route path="/peliculas" component={Peliculas} />
                     <Route path="/ruta-prueba" component={SeccionPruebas} />
