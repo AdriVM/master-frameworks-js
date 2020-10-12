@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Redirect, Link } from 'react-router-dom';
 import Axios from 'axios';
+import swal from 'sweetalert2'
+import { Link, Redirect } from 'react-router-dom'
 import Global from '../Global';
 import Moment from 'react-moment';
 import 'moment/locale/es';
@@ -31,7 +32,7 @@ class Article extends Component {
                     status: 'success'
                 });
 
-            }).catch( err => {
+            }).catch(err => {
                 this.setState({
                     article: [],
                     status: 'success'
@@ -43,12 +44,57 @@ class Article extends Component {
         this.getArticle();
     }
 
+
+    deleteArticle = (id) => {
+        swal.fire({
+            title: '¿Seguro que quiere eliminar el artículo?',
+            text: 'Si elimina el artículo desaparecerá definitivamente.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Si, eliminalo',
+            cancelButtonText: '¡Espera, espera!'
+        }).then((result) => {
+            if (result.value) {
+                swal.fire(
+                    '¡Artículo Eliminado!',
+                    'El artículo ha sido eliminado correctamente :)',
+                    'success'
+                )
+                Axios.delete(this.url + 'article/' + id)
+                    .then(res => {
+
+                        this.setState({
+                            article: res.data.article,
+                            status: 'deleted'
+                        });
+
+                    });
+            } else if (result.dismiss === swal.DismissReason.cancel) {
+                swal.fire(
+                    '¡Eliminación cancelada!',
+                    'Siempre es bueno dar una segunda oportunidad :)',
+                    'error'
+                )
+            }
+        })
+
+    }
+
     render() {
+
+        //comporbamos si ha borrado
+        if (this.state.status === 'deleted') {
+
+            return (
+                <Redirect to="/blog" />
+            )
+
+        }
 
         var article = this.state.article;
         var style = {};
-       
-        if(article.length !== 0 && this.state.status !== null){
+
+        if (article.length !== 0 && this.state.status !== null) {
             article.image !== undefined && article.image !== null ? (
                 style = {
                     backgroundImage: `url(` + this.url + `get-image/` + article.image + `)`
@@ -59,7 +105,7 @@ class Article extends Component {
                     }
                 )
         }
-            
+
 
 
         return (
@@ -77,13 +123,18 @@ class Article extends Component {
                             <p>
                                 {article.content}
                             </p>
-                            <a href="#" className="btn btn-danger">Eliminar</a>
-                            <a href="#" className="btn btn-warning">Editar</a>
+                            <div className="clearfix"></div>
+                            <button className="btn btn-danger" onClick={
+                                () => {
+                                    this.deleteArticle(article._id)
+                                }
+                            }>Eliminar</button>
+                            <Link to={'/blog/editar/' + article._id} className="btn btn-warning">Editar</Link>
                             <div className="clearfix"></div>
                         </article>
                     }
                     {   //SI NO EXISTE EL ARTICULO
-                        article.length === 0 && this.state.status == 'success' &&
+                        article.length === 0 && this.state.status === 'success' &&
                         <div id="article">
                             <h2 className="sub-header">El artículo no existe</h2>
                             <p>Intentelo de nuevo más tarde y disculpe las molestias</p>
