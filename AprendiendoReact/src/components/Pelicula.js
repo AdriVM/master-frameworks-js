@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 
 class Pelicula extends React.Component{
 
@@ -21,7 +22,7 @@ class Pelicula extends React.Component{
                 <span className="date">
                     Hace 5 minutos
                 </span>
-                <a href="article.html">Leer más</a>
+                <Link to="/blog">Leer más</Link>
                 {/* DEBE MANDARSE ASI O HACER UN METODO QUE LO LLAME PORQUE SI MANDAS 
                         this.props.marcarFavorita(this.props.pelicula) 
                 NO FUNCIONA 
