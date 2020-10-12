@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 class Slider extends React.Component {
 
@@ -10,7 +11,7 @@ class Slider extends React.Component {
                 <h1>{ this.props.title }</h1>
                 {
                     this.props.btn &&
-                    <a href="blog.html" className="btn-white">{ this.props.btn }</a>
+                    <Link to={ '/blog' } className="btn-white">{ this.props.btn }</Link>
                 }
                 
             </div>
