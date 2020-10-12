@@ -8,7 +8,7 @@ import Articles from './Articles';
 class Search extends Component{
     render(){
 
-        //Recogemos el string a buscar, (IMPORTANTE: this.props.match.params para acceder al pará,etro por URL);
+        //Recogemos el string a buscar, (IMPORTANTE: this.props.match.params para acceder al parámetro por URL);
         var searched = this.props.match.params.search;
         
         return (
