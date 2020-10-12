@@ -267,6 +267,7 @@ body {
   max-width: 120px;
   border: none;
   cursor: pointer;
+  margin-top: 0px !important;
 }
 
 .btn-success {
@@ -322,6 +323,10 @@ textarea {
     
 }
 
+input[type="submit"]{
+  margin-top: 15px;
+}
+
 .btn.up_btn.afu-attach-pin{
     display: block!important;
     width: 100%!important;
@@ -371,6 +376,12 @@ textarea {
   font-size: 17px;
   margin-top: 10px;
 }
+
+.image-thumb img{
+  width: 150px;
+  text-align: center;
+}
+
 
 /*  FOOTER */
 
@@ -445,6 +456,9 @@ textarea {
 
 .article-item a:hover {
   text-decoration: underline;
+}
+.article-item a.btn {
+  height: 16px!important;
 }
 
 /* ARTICLE DETAIL */
