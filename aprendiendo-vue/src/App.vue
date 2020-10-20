@@ -3,7 +3,10 @@
     <HeaderComponent/>
     <SliderComponent estilo="slider-big" titulo="Bienvenido al Curso de Vue"/>
     <div class="center">
-      <UltimosArticulosComponent/>
+      
+      <!--<UltimosArticulosComponent/>-->
+      <router-view></router-view>
+
       <SidebarComponent/>
       <div class="clearfix"></div>
     </div>
@@ -23,7 +26,7 @@
 import HeaderComponent from './components/HeaderComponent.vue';
 import SliderComponent from './components/SliderComponent.vue';
 import SidebarComponent from './components/SidebarComponent.vue';
-import UltimosArticulosComponent from './components/UltimosArticulosComponent.vue';
+//import UltimosArticulosComponent from './components/UltimosArticulosComponent.vue';
 import FooterComponent from './components/FooterComponent.vue';
 
 export default {
@@ -34,7 +37,7 @@ export default {
     HeaderComponent,
     SliderComponent,
     SidebarComponent,
-    UltimosArticulosComponent,
+    //UltimosArticulosComponent,
     FooterComponent
   }
 }
