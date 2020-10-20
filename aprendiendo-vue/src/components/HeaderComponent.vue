@@ -13,19 +13,19 @@
             <nav id="menu">
                 <ul>
                     <li>
-                        <a href="index.html">Inicio</a>
+                        <router-link to="/home" active-class="active">Inicio</router-link>
                     </li>
                     <li>
-                        <a href="blog.html">Blog</a>
+                        <router-link to="/blog" active-class="active">Blog</router-link>
                     </li>
                     <li>
-                        <a href="formulario.html">Contacto</a>
+                        <router-link to="/formulario" active-class="active">Formulario</router-link>
                     </li>
                     <li>
-                        <a href="#">Página 1</a>
+                        <router-link :to="{ name: 'pruebas', params: { id: 'valor definido con una directiva especial en el menú' } }" active-class="active">Página 1</router-link>
                     </li>
                     <li>
-                        <a href="#">Página 2</a>
+                        <router-link to="/mi-componente" active-class="active">Página 2</router-link>
                     </li>
                 </ul>
             </nav>
