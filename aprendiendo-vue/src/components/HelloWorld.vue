@@ -1,7 +1,9 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <!--<p>
+  <section id="content">
+    <h2 class="sub-header">{{ titulo }}</h2>
+    <div class="hello">
+      <h4>{{ msg }}</h4>
+      <!--<p>
       Para obtener una guía y recetas sobre cómo configurar / personalizar este proyecto,<br>
       revisar la
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">documentación vue-cli</a>.
@@ -27,41 +29,41 @@
       <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
     </ul>-->
-    <h2>Hola Mundo</h2>
-    <h2>{{ texto }}</h2>
-    <MiComponente/>
-    <b>FIN DEL COMPONENTE HOLA MUNDO</b>
-  </div>
+      <h2>Hola Mundo</h2>
+      <h2>{{ texto }}</h2>
+    </div>
+  </section>
 </template>
 
 <script>
 //Importamos nuestro componente
-import MiComponente from './MiComponente.vue'
+//import MiComponente from './MiComponente.vue'
 //data() nos permite devolver las propiedades que queremos mostrar en la vista
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   components: {
-      MiComponente
+    //MiComponente
   },
   props: {
-    msg: String
+    msg: String,
   },
   data() {
     return {
-      texto: "Hola Mundo desde el componente"
-    }
-  }
-}
+      titulo: "Hola Mundo",
+      texto: "Hola Mundo desde el componente",
+    };
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.hello{
+.hello {
   background-color: #42b983;
   color: beige;
   margin: 0;
   padding: 0;
-  width: 100vw;
+  width: 100%;
 }
 h3 {
   margin: 40px 0 0;
