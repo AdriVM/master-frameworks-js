@@ -416,6 +416,30 @@
     width: 100%;
     color:rgb(122, 122, 122);
   }
+  .article-item .dategreen {
+    display: block !important;
+    width: 112px !important;
+    padding: 10px !important;
+    background-color: #3fb984 !important;
+    color: white !important;
+    text-align: center !important;
+  }
+  .article-item .datered {
+    display: block !important;
+    width: 112px !important;
+    padding: 10px !important;
+    background-color: #b93f64 !important;
+    color: white !important;
+    text-align: center !important;
+  }
+  .article-item .dateyellow {
+    display: block !important;
+    width: 112px !important;
+    padding: 10px !important;
+    background-color: #b9a33f !important;
+    color: white !important;
+    text-align: center !important;
+  }
   
   .article-item a {
     display: block;
