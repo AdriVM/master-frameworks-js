@@ -13,6 +13,7 @@ import ErrorComponent from './components/ErrorComponent.vue';
 
 import MiComponente from './components/MiComponente.vue';
 import HolaMundo from './components/HelloWorld.vue';
+import Peliculas from './components/PeliculasComponent.vue';
 
 Vue.config.productionTip = false
 //Hacemos que vue haga uso del VueRouter
@@ -29,6 +30,7 @@ const routes = [
   { path: '/ultimos-articulos', component: UltimosArticulos },
   { path: '/mi-componente', component: MiComponente },
   { path: '/hola-mundo', component: HolaMundo },
+  { path: '/peliculas', component: Peliculas },
   
   { path: '/', component: UltimosArticulos },
   { path: '*', component: ErrorComponent }
