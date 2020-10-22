@@ -25,7 +25,7 @@
                         <router-link :to="{ name: 'pruebas', params: { id: 'valor definido con una directiva especial en el menú' } }" active-class="active">Página 1</router-link>
                     </li>
                     <li>
-                        <router-link to="/mi-componente" active-class="active">Página 2</router-link>
+                        <router-link to="/peliculas" active-class="active">Página 2</router-link>
                     </li>
                 </ul>
             </nav>
