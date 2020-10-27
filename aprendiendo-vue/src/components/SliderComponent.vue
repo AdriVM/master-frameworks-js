@@ -1,7 +1,10 @@
 <template>
-    <div id="slider" :class="estilo">
+    <div id="slider" :class="{
+        'slider-big': home,
+        'slider-small': !home
+    }">
         <h1>{{ titulo }}</h1>
-        <a href="blog.html" class="btn-white" v-if="estilo === 'slider-big'">Ir al Blog</a>
+        <router-link to="blog" class="btn-white" v-if="home">Ir al Blog</router-link>
     </div>
 </template>
 <script>
@@ -9,7 +12,7 @@ export default {
     name: 'SliderComponent',
     props: {
     titulo: String,
-    estilo: String
+    home: Boolean
   }
 }
 </script>

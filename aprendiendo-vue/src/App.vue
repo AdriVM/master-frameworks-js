@@ -1,16 +1,9 @@
 <template>
   <div id="app">
-    <HeaderComponent/>
-    <SliderComponent estilo="slider-big" titulo="Bienvenido al Curso de Vue"/>
-    <div class="center">
-      
-      <!--<UltimosArticulosComponent/>-->
-      <router-view></router-view>
-
-      <SidebarComponent/>
-      <div class="clearfix"></div>
-    </div>
-    <FooterComponent/>
+    <HeaderComponent />
+    <!--<UltimosArticulosComponent/>-->
+    <router-view></router-view>
+    <FooterComponent />
   </div>
 </template>
 
@@ -23,24 +16,21 @@
 //import HelloWorld from './components/HelloWorld.vue';
 //Importamos nuestro componente
 //import MiComponente from './components/MiComponente.vue';
-import HeaderComponent from './components/HeaderComponent.vue';
-import SliderComponent from './components/SliderComponent.vue';
-import SidebarComponent from './components/SidebarComponent.vue';
+import HeaderComponent from "./components/HeaderComponent.vue";
+
 //import UltimosArticulosComponent from './components/UltimosArticulosComponent.vue';
-import FooterComponent from './components/FooterComponent.vue';
+import FooterComponent from "./components/FooterComponent.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     //HelloWorld,
     //MiComponente,
     HeaderComponent,
-    SliderComponent,
-    SidebarComponent,
     //UltimosArticulosComponent,
-    FooterComponent
-  }
-}
+    FooterComponent,
+  },
+};
 </script>
 
 <style>
@@ -58,5 +48,5 @@ body {
 }
 */
 /* Importamos nuestros estilos */
-@import './assets/styles.css';
+@import "./assets/styles.css";
 </style>
