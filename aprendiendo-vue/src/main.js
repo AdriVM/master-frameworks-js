@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 //Importamos las dependencias del router que nos hemos descargado de npm install --save vue-router
 import VueRouter from 'vue-router';
+//Importamos vuelidate 
+import Vuelidate from 'vuelidate';
 
 //Componentes
 import UltimosArticulos from './components/UltimosArticulosComponent.vue';
@@ -18,6 +20,8 @@ import Peliculas from './components/PeliculasComponent.vue';
 Vue.config.productionTip = false
 //Hacemos que vue haga uso del VueRouter
 Vue.use(VueRouter);
+//Hacemos que vue haga uso del Vuelidate
+Vue.use(Vuelidate);
 
 //Definimos las rutas
 const routes = [
