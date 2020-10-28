@@ -7,13 +7,20 @@
         <h3 v-if="this.favorita != null">
           La Pelicula favorita es: <b style="color:cadetblue">{{this.favorita}}</b>
         </h3>
+        <p v-if="this.favorita != null">
+          Según <span v-html="misDatos"></span>
+          <br/>
+          Este nombre está siendo utilizado por un filtro o pipe que lo pone en mayúsculas y otro que concatena el año actual:
+          <br/>
+          {{ this.nombre | mayusculas | concatenaYear('El peor año del siglo.')}}
+        </p>
         <div id="articles">
           <!-- 
         v-for="pelicula in peliculas" :key="pelicula.title" 
         :pelicula para que sea un v-bind, si no ponemos los : tomará como string lo que le enviemos
         @favorita es un evento que emitimos desde el componente hijo
       -->
-          <div v-for="pelicula in peliculas" :key="pelicula.title">
+          <div v-for="pelicula in peliculasMayuscula" :key="pelicula.title">
             <pelicula 
             :pelicula="pelicula"
             @favorita="haLlegadoLaFavorita"></pelicula>
@@ -42,8 +49,38 @@ export default {
       this.favorita = favorita.title;
     }
   },
+  computed: {
+    //Propiedades computadas
+    peliculasMayuscula(){
+
+      var peliculasMod = this.peliculas;
+
+      for(var i = 0; i < peliculasMod.length; i++){
+        peliculasMod[i].title = peliculasMod[i].title.toUpperCase();
+      }
+
+      return peliculasMod;
+
+    },
+    misDatos(){
+      return '<b>' + this.nombre + ' ' + this.apellido + '</b><br/>'+' Con una edad de ' + this.edad + ' años.'
+    }
+  },
+  filters: {
+    //Filtros o Pipes(en Angular)
+    mayusculas(value){
+      return value.toUpperCase();
+    },
+    concatenaYear(value, message){
+      var date = new Date();
+      return value + ', ' + date.getFullYear() + ' ' + message;
+    }
+  },
   data() {
     return {
+      nombre: 'Adrián',
+      apellido: 'Vázquez',
+      edad: 28,
       favorita: null,
       peliculas: [
         {
