@@ -150,7 +150,7 @@ var controller = {
             }
 
             return response.status(200).send({
-                status: 'succes',
+                status: 'success',
                 articles
             });
 
