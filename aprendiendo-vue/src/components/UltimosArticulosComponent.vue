@@ -7,34 +7,7 @@
     <div class="center">
       <section id="content">
         <h2 class="sub-header">Últimos Artículos</h2>
-        <div id="articles">
-          <article class="article-item" id="article-template">
-            <div class="image-wrap">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-nC2smsN7PDcLUxGxSWkMYvbGvqkTzdDXGA&usqp=CAU"
-                alt="Paisaje"
-              />
-            </div>
-
-            <h2>Artículo de prueba</h2>
-            <span class="date"> Hace 5 minutos </span>
-            <a href="article.html">Leer más</a>
-            <div class="clearfix"></div>
-          </article>
-          <article class="article-item" id="article-template">
-            <div class="image-wrap">
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcR-nC2smsN7PDcLUxGxSWkMYvbGvqkTzdDXGA&usqp=CAU"
-                alt="Paisaje"
-              />
-            </div>
-
-            <h2>Artículo de prueba</h2>
-            <span class="date"> Hace 5 minutos </span>
-            <a href="article.html">Leer más</a>
-            <div class="clearfix"></div>
-          </article>
-        </div>
+        <ArticlesComponent :articles="articles"/>
       </section>
       <SidebarComponent />
       <div class="clearfix"></div>
@@ -42,13 +15,41 @@
   </div>
 </template>
 <script>
+//Importamos axios para hacer peticiones AJAX al backend
+import axios from "axios";
+import Global from '../Global'
+
 import SliderComponent from "./SliderComponent.vue";
 import SidebarComponent from "./SidebarComponent.vue";
+import ArticlesComponent from "./ArticlesComponent.vue";
+
 export default {
   name: "UltimosArticulosComponent",
   components: {
     SliderComponent,
     SidebarComponent,
+    ArticlesComponent
+  },
+  data() {
+    return {
+      url: Global.url,
+      articles: [],
+    };
+  },
+  mounted() {
+    this.getLastArticles(5);
+  },
+  methods: {
+    //Método que nos saca todos los articulos
+    getLastArticles(num) {
+      //Hacemos petición al backend con axios
+      axios.get(this.url+"articles/"+num).then((res) => {
+        if (res.data.status == "success") {
+          this.articles = res.data.articles;
+        }
+        console.log(this.articles);
+      });
+    },
   },
 };
 </script>
