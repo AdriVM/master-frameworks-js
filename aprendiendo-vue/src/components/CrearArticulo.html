@@ -1,0 +1,44 @@
+<div class="general">
+    <SliderComponent :titulo="tituloForm" />
+    <div class="center">
+        <section id="content">
+            <h2 class="sub-header" v-if="!isEdit">Formulario de creación</h2>
+            <h2 class="sub-header" v-else>Formulario de edición</h2>
+
+            <!-- Formulario -->
+            <form class="mid-form" @submit.prevent="save()">
+                <div class="form-group">
+                    <label for="title">Titulo</label>
+                    <input type="text" name="title" v-model="article.title" />
+                    <div class="validationError" v-if="submitted && !$v.article.title.required">
+                        El campo título es obligatorio.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content">Contenido</label>
+                    <textarea name="content" cols="30" rows="10" v-model="article.content"></textarea>
+                    <div class="validationError" v-if="submitted && !$v.article.content.required">
+                        El campo Contenido es obligatorio.
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="file0">Imagen</label>
+                    <div v-if="isEdit && article.image" class="article-image-edit">
+                        <img :src="url + 'get-image/' + article.image" :alt="article.title" />
+                    </div>
+                    <!-- La ref, nos sirve para vincular el input con la propiedad file que hemos declarado en el data() -->
+                    <input type="file" id="file" ref="file" name="file0" @change="fileChange()" />
+                    <div class="validationError" v-if="fileError">
+                        Hay algún error con la extensión del archivo :(
+                    </div>
+                </div>
+                </br>
+                <input type="submit" value="Guardar" class="btn btn-success" v-if="!isEdit" />
+                <input type="submit" value="Editar" class="btn btn-warning" v-else />
+            </form>
+            <div class="clearfix"></div>
+        </section>
+        <SidebarComponent />
+        <div class="clearfix"></div>
+    </div>
+</div>
