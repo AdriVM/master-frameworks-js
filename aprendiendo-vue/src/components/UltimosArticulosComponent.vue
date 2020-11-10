@@ -33,14 +33,14 @@ export default {
   data() {
     return {
       url: Global.url,
-      articles: [],
+      articles: null,
     };
   },
   mounted() {
     this.getLastArticles(5);
   },
   methods: {
-    //Método que nos saca todos los articulos
+    //Método que nos saca los 'num' articulos
     getLastArticles(num) {
       //Hacemos petición al backend con axios
       axios.get(this.url+"articles/"+num).then((res) => {
