@@ -1,5 +1,6 @@
 <template>
-  <div id="article-list">
+
+  <div id="article-list" v-if="articles && articles.length >= 1">
     <article
       class="article-item"
       v-for="article in articles"
@@ -18,11 +19,21 @@
         />
       </div>
 
-      <h2>{{ article.title }}</h2>
-      <span class="date"> {{ article.date }} </span>
-      <a href="article.html">Leer más</a>
+      <h2>
+        <routerLink :to="{ name: 'article', params: { id: article._id }}">
+          {{ article.title }}
+        </routerLink>
+        </h2>
+      <span class="date"> {{ article.date | moment("from", "now") }} </span>
+      <routerLink :to="{ name: 'article', params: { id: article._id }}">Leer más</routerLink>
       <div class="clearfix"></div>
     </article>
+  </div>
+  <div v-else-if="articles && articles.length < 1">
+    <b>No hay artículos para mostrar en este momento.</b>
+  </div>
+  <div v-else>
+    <b>Cargando...</b>
   </div>
 </template>
 <script>
