@@ -35,7 +35,7 @@ export default {
   data() {
     return {
       url: Global.url,
-      articles: [],
+      articles: null,
     };
   },
   mounted() {
