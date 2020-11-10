@@ -10,7 +10,9 @@
   "dependencies": {
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "sweetalert2": "^10.9.0",
     "vue": "^2.6.11",
+    "vue-moment": "^4.1.0",
     "vue-router": "^3.4.7",
     "vuelidate": "^0.7.6"
   },
